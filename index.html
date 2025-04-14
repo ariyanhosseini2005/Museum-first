@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Museum Language Portal</title>
+  <!-- فونت‌های اصلی -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <!-- فونت‌های اختصاصی: عربی (Cairo)، فارسی (Vazirmatn) و فرانسوی (EB Garamond) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Vazirmatn:wght@500&family=EB+Garamond&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- کانوایس پس‌زمینه جهت افکت‌های نئون -->
+  <canvas id="neon-bg"></canvas>
+  
+  <!-- عنوان صفحه با قابلیت تغییر دینامیک؛ جهت پیش‌فرض rtl برای متون فارسی/عربی -->
+  <h1 class="title" id="dynamic-title" data-current-title="زبان مورد نظر خود را انتخاب کنید">
+    <span dir="rtl">زبان مورد نظر خود را انتخاب کنید</span>
+  </h1>
+
+  <!-- ریشه Vue برای رندر پنل‌ها -->
+  <div id="app" class="container">
+    <panel v-for="(p, i) in panels"
+           :key="i"
+           :index="i"
+           :data-image="p.image"
+           :data-title="p.title"
+           :data-icon="p.icon"></panel>
+  </div>
+
+  <!-- لود Vue (نسخه 2) -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
